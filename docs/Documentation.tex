@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+\begin{document}
+
+\section*{Quaternion}
+\begin{flushleft}
+
+Angular velocity from quaternion.
+
+\[
+\dot q = \frac{dq}{dt} = \frac{1}{2}\omega q_t
+\]
+
+\[
+\omega = 2 \frac{dq}{dt} \overline q_t
+\]
+
+\[
+(0,\vec\omega) = 2 \frac{dq}{dt} \overline q_t = 2 \frac{(q_t - q_{t-1})}{dt} \overline q_t
+\]
+
+Quaternion from angular velocity.
+
+First order method:
+\[
+M = 1 + \frac{dt}{2}\vec\omega
+\]
+
+\[
+\Lambda_{t+1} = \Lambda_tM
+\]
+After this step normalization is required.
+
+72 l = 0i + 0.265923j + 0k + 0.963994 norma 1
+
+Second order method:
+\[
+M = 1 - \frac{|\vec\omega|^2dt^2}{12} + \frac{dt}{2}\vec\omega
+\]
+
+\[
+\Lambda_{t+1} = \Lambda_tM
+\]
+After this step normalization is required.
+
+72 l = 0i + 0.28289j + 0k + 0.959153 norma 1
+
+
+\end{flushleft}
+
+\end{document}
